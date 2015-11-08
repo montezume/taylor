@@ -3,6 +3,10 @@
 
   angular
     .module('taylor')
+    .constant('AppConfig', {
+        KANYE : 1,
+        TAYLOR : 0
+    })
     .config(config);
 
   /** @ngInject */
@@ -16,6 +20,7 @@
     toastrConfig.positionClass = 'toast-top-right';
     toastrConfig.preventDuplicates = true;
     toastrConfig.progressBar = true;
+
   }
 
 })();

@@ -23,11 +23,17 @@ body {
 	&.awesome-button {
 		width: 80%;
 		background-color: transparent;
+		border-width: 2px;
 		border-color: purple;
 		margin-top: 50px;
 		text-transform: uppercase;
 		border-radius: 0;
 		font-size: 2em;
+
+		&:hover, &:focus {
+			color: white;
+			background-color: purple;
+		}
 	}
 }
 

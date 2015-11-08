@@ -1,15 +1,15 @@
 <div class="main-backdrop">
     <div class="main-image-container">
         <div class="inside">
-            <display-quote quote-text="mainCtrl.quoteText"></display-quote>
+            <display-quote quote="mainCtrl.quote"></display-quote>
 
             <div class="col-sm-6 col-sm-offset-3">
                 <div class="half">
-                  <button class="btn awesome-button block-center" type="button">Taylor</button>
+                  <button ng-click="mainCtrl.select(mainCtrl.appConfig.TAYLOR)" class="btn awesome-button block-center" type="button">Taylor</button>
                 </div>
 
                 <div class="half">
-                    <button class="btn awesome-button block-center" type="button">Kanye</button>
+                    <button ng-click="mainCtrl.select(mainCtrl.appConfig.KANYE)" class="btn awesome-button block-center" type="button">Kanye</button>
                 </div>
             </div>
         </div>

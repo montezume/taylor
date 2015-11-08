@@ -4,7 +4,12 @@
     function quoteController($scope) {
 
         var vm = this;
-        vm.quoteText = $scope.quoteText.quoteText;
+        vm.quote = $scope.quote;
+
+        // when quote is updated in main controller, listen for it here
+        $scope.$on('nextQuote', function (event, data) {
+            vm.quote = data.quote;
+        });
     }
 
     // @ngInject
@@ -12,7 +17,7 @@
         return {
             restrict: 'E',
             scope: {
-                quoteText: '='
+                quote: '='
             },
             templateUrl: 'app/components/directives/quote.html',
             link: function () {
