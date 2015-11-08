@@ -1,0 +1,95 @@
+body {
+	font-family: $roboto;
+	color: white;
+}
+
+.margin {
+	&.top {
+		margin-top: 50px;
+	}
+}
+
+.block-center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.card {
+	background-color: rgba(157, 89, 179, 0.5);
+	padding: 20px 10px;
+}
+
+.btn {
+	&.awesome-button {
+		width: 80%;
+		background-color: transparent;
+		border-color: purple;
+		margin-top: 50px;
+		text-transform: uppercase;
+		border-radius: 0;
+		font-size: 2em;
+	}
+}
+
+.half {
+	width: 50%;
+	float: left;
+}
+.main-backdrop {
+	position: relative;
+
+	.taylor {
+		background: linear-gradient(90deg, rgba(0,0,0,0.3), rgba(0,0,0, 1)), url('../assets/images/taylor.jpg');
+				background-position-x: 50%;
+		width: 50%;
+			float: left;
+
+		height: 100%;
+			background-position-y: 10%;
+
+	}	
+	.kanye {
+		background: 
+		linear-gradient(90deg, rgba(0,0,0,1), rgba(0,0,0, 0.3)),
+			 url('../assets/images/kanye1.jpg');
+		background-position-x: 50%;
+		width: 50%;
+			background-position-y: 50%;
+
+		height: 100%;
+			float: left;
+
+	}
+
+	background-size: cover;
+	height: 100vh;
+	width: 100%;
+
+	.main-image-container {
+	  width: 100%;
+	  height: 100%;
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  display: table;
+
+	  .inside {
+	  	height: 100%;
+	  	width: 100%;
+	  	display: table-cell;
+	  	vertical-align: middle;
+	  		.divider {
+	  			font-size: 8em;
+	  			color: white;
+	  		}
+	  }
+	}
+}
+
+.header-text {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	color: white;
+	font-size: 8em;
+}

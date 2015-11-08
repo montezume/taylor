@@ -1,28 +1,28 @@
 (function() {
   'use strict';
 
-  describe('service webDevTec', function() {
-    var webDevTec;
+  describe('service quotes', function() {
+    var quotes;
 
     beforeEach(module('taylor'));
-    beforeEach(inject(function(_webDevTec_) {
-      webDevTec = _webDevTec_;
+    beforeEach(inject(function(_quotes_) {
+      quotes = _quotes_;
     }));
 
     it('should be registered', function() {
-      expect(webDevTec).not.toEqual(null);
+      expect(quotes).not.toEqual(null);
     });
 
-    describe('getTec function', function() {
+    describe('getQuotes function', function() {
       it('should exist', function() {
-        expect(webDevTec.getTec).not.toEqual(null);
+        expect(quotes.getQuotes).not.toEqual(null);
       });
 
       it('should return array of object', function() {
-        var data = webDevTec.getTec();
+        var data = quotes.getQuotes();
         expect(data).toEqual(jasmine.any(Array));
         expect(data[0]).toEqual(jasmine.any(Object));
-        expect(data.length > 5).toBeTruthy();
+        expect(data.length > 1).toBeTruthy();
       });
     });
   });
