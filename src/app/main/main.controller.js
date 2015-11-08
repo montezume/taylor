@@ -9,16 +9,21 @@
   function MainController($scope, quotes, AppConfig) {
     var vm = this;
     vm.appConfig = AppConfig;
+    vm.gameLength = AppConfig.GAME_LENGTH;
     vm.currentScore = 0;
+    vm.quotePosition;
+    vm.showButtons = true;
+    vm.message = '';
 
     vm.select = function(index) {
+
         if (vm.quote.author == index) {
             console.log('win');
+            vm.currentScore ++;
         } else {
             console.log('lose');
         }
         nextQuote();
-        console.log(vm.quote);
     }
     
     function getQuotes() {
@@ -30,17 +35,21 @@
     }
 
     function nextQuote() {
-        // remove used quote from array
-        vm.quotes.slice(position, 1);
-        var nextPosition = getRandomInt(0, vm.quotes.length);
-        vm.quote = vm.quotes[nextPosition];
-        
+        // remove used quote from array.
+
+        vm.quotes.splice(vm.quotePosition, 1);
+        vm.quotePosition = getRandomInt(0, vm.quotes.length);
+        vm.quote = vm.quotes[vm.quotePosition];
         $scope.$broadcast('nextQuote', { 'quote': vm.quote });
+        
+        if (vm.quotes.length == 0) {
+            vm.showButtons = false;
+            vm.message = 'game over';
+        }
     }
 
     getQuotes();
-    var position = getRandomInt(0, vm.quotes.length);
-
-    vm.quote = vm.quotes[position];
+    vm.quotePosition = getRandomInt(0, vm.quotes.length);
+    vm.quote = vm.quotes[vm.quotePosition];
   }
 })();

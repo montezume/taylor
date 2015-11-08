@@ -5,7 +5,8 @@
     .module('taylor')
     .constant('AppConfig', {
         KANYE : 1,
-        TAYLOR : 0
+        TAYLOR : 0,
+        GAME_LENGTH: 5
     })
     .config(config);
 
