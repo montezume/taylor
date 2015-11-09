@@ -25,6 +25,18 @@
         'author': 0
       },
       {
+        'quoteText': 'You can write a book on how to ruin someone’s perfect day',
+        'author': 0
+      },
+      {
+        'quoteText': 'Life is like walking you take one step at a time',
+        'author': 0
+      },
+      {
+        'quoteText': 'I\'m intimidated by the fear of being average',
+        'author': 0
+      },
+      {
         'quoteText': 'I know I got angels watching me from the other side',
         'author': 1
       },
@@ -39,14 +51,35 @@
       {
         'quoteText': 'George Bush doesn\'t care about black people.',
         'author': 1
+      },
+      {
+        'quoteText': 'Nothing in life is promised except death',
+        'author': 1
+      },
+      {
+        'quoteText': 'I was never really good at anything except for the ability to learn',
+        'author': 1
+      },
+      {
+        'quoteText': 'I still think I am the greatest.',
+        'author': 1
       }
     ];
 
     this.getQuotes = getQuotes;
 
-    function getQuotes() {
-      return data;
+    function getQuotes(num) {
+        shuffle();
+        if (!num) {
+            num = 10;
+        }
+        return data.slice(0, num);
     }
+
+    function shuffle() {
+        data.sort(function() { return 0.5 - Math.random() });
+    }
+
   }
 
 })();

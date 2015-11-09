@@ -5,6 +5,7 @@
 
         var vm = this;
         vm.quote = $scope.quote;
+        vm.title = $scope.title;
 
         // when quote is updated in main controller, listen for it here
         $scope.$on('nextQuote', function (event, data) {
@@ -17,7 +18,8 @@
         return {
             restrict: 'E',
             scope: {
-                quote: '='
+                quote: '=',
+                title: '='
             },
             templateUrl: 'app/components/directives/quote.html',
             link: function () {

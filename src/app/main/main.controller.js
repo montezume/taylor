@@ -6,50 +6,54 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($scope, quotes, AppConfig) {
+  function MainController($scope, quotes, AppConfig, $timeout) {
     var vm = this;
     vm.appConfig = AppConfig;
     vm.gameLength = AppConfig.GAME_LENGTH;
-    vm.currentScore = 0;
     vm.quotePosition;
     vm.showButtons = true;
     vm.message = '';
+    vm.answering = false;
+    vm.numQuestions = 10;
 
     vm.select = function(index) {
 
-        if (vm.quote.author == index) {
-            console.log('win');
-            vm.currentScore ++;
-        } else {
-            console.log('lose');
-        }
-        nextQuote();
+        if (!vm.showButtons) return;
+
+        vm.showButtons = false;
+        let points = vm.quote.author == index ? 1 : 0;
+        updateScore(points);
+
+        $timeout(function() {
+            nextQuote();
+            if (vm.quotes.length > 0) {
+                vm.showButtons = true;
+            }
+        }, 2000);
     }
     
     function getQuotes() {
         vm.quotes = quotes.getQuotes();
     }
 
-    function getRandomInt(min, max) {
-        return Math.floor(Math.random() * (max - min)) + min;
+    function updateScore(points) {
+        vm.message = (points == 1) ? 'Nice guess!' : 'Wrong, sorry.';
+        $scope.$broadcast('updateScore', { 'points' : points });
     }
 
     function nextQuote() {
         // remove used quote from array.
-
-        vm.quotes.splice(vm.quotePosition, 1);
-        vm.quotePosition = getRandomInt(0, vm.quotes.length);
-        vm.quote = vm.quotes[vm.quotePosition];
+        vm.quotes.splice(0, 1);
+        vm.quote = vm.quotes[0];
         $scope.$broadcast('nextQuote', { 'quote': vm.quote });
         
         if (vm.quotes.length == 0) {
             vm.showButtons = false;
-            vm.message = 'game over';
+            vm.message = 'Game Over - refresh to play again.';
         }
     }
-
-    getQuotes();
-    vm.quotePosition = getRandomInt(0, vm.quotes.length);
-    vm.quote = vm.quotes[vm.quotePosition];
+    // get 10 quotes.
+    getQuotes(vm.numQuestions);
+    vm.quote = vm.quotes[0];
   }
 })();

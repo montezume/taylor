@@ -1,9 +1,9 @@
 <div class="main-backdrop">
     <div class="main-image-container">
         <div class="inside">
-            <display-quote ng-show="mainCtrl.showButtons" quote="mainCtrl.quote"></display-quote>
+            <display-quote ng-show="mainCtrl.showButtons" title="'Taylor or Kanye?'" quote="mainCtrl.quote"></display-quote>
             <div class="col-sm-6 col-sm-offset-3">
-                <div ng-show="mainCtrl.showButtons">
+                <div ng-if="mainCtrl.showButtons">
                     <div class="half">
                       <button ng-click="mainCtrl.select(mainCtrl.appConfig.TAYLOR)" class="btn awesome-button block-center" type="button">Taylor</button>
                     </div>
@@ -12,7 +12,7 @@
                         <button ng-click="mainCtrl.select(mainCtrl.appConfig.KANYE)" class="btn awesome-button block-center" type="button">Kanye</button>
                     </div>
                 </div>
-                <div ng-show="!mainCtrl.showButtons">
+                <div ng-if="!mainCtrl.showButtons">
                     <h1 class="text-center" ng-bind="mainCtrl.message"></h1>
                 </div>
             </div>
@@ -20,6 +20,6 @@
     </div>
     <figure class="taylor"></figure>
     <figure class="kanye"></figure>
-    <span class="score" ng-bind="mainCtrl.currentScore"></span>
+    <score></score>
 </div>
 

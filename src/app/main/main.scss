@@ -9,24 +9,12 @@ body {
 	}
 }
 
-.score {
-	position: absolute;
-	top: 0;
-	right: 0;
-	background-color: rgba(255,255,255,0.5);
-	padding: 20px;
-	font-size: 32px;
-}
-
 .block-center {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
 }
-.card {
-	background-color: rgba(157, 89, 179, 0.5);
-	padding: 20px 10px;
-}
+
 
 .btn {
 	&.awesome-button {
@@ -99,12 +87,4 @@ body {
 	  		}
 	  }
 	}
-}
-
-.header-text {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	color: white;
-	font-size: 8em;
 }
