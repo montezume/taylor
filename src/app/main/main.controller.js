@@ -21,7 +21,7 @@
         if (!vm.showButtons) return;
 
         vm.showButtons = false;
-        let points = vm.quote.author == index ? 1 : 0;
+        var points = vm.quote.author == index ? 1 : 0;
         updateScore(points);
 
         $timeout(function() {
